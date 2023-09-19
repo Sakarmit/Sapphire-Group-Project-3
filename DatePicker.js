@@ -11,12 +11,8 @@ class DatePicker {
         if (date instanceof Date) {
             this.date = date;
         }
-
         const calendarHTML = this.generateCalendarHTML();
-
         this.container.innerHTML = calendarHTML;
-
-
     }
 
     generateCalendarHTML() {
