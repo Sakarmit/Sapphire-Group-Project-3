@@ -16,13 +16,9 @@ class DatePicker {
     }
 
     generateCalendarHTML() {
-
         const firstDayOfMonth = new Date(this.date.getFullYear(), this.date.getMonth(), 1).getDay();
-
         const lastDayOfMonth= new Date(this.date.getFullYear(),this.date.getMonth()+1, 0).getDate();
-
         const dayNames = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
-
         let calendarHTML = `
     <table>
       <thead>
@@ -51,24 +47,17 @@ class DatePicker {
                     calendarHTML += '<td class="other-month"></td>';
                 }
             }
-
             calendarHTML += '</tr>';
         }
-
         calendarHTML += `
       </tbody>
     </table>
   `;
-
         return calendarHTML;
     }
-
-
     getMonthName() {
-
         const monthNum = this.date.getMonth();
         const monthArray=["January","February","March","April","May","June","July","August","September","October","November","December"];
         return monthArray[monthNum];
-
     }
 }
