@@ -18,11 +18,14 @@ class DatePicker {
     }
 
     generateCalendarHTML() {
+        this.setupControls();
         const firstDayOfMonth = new Date(this.date.getFullYear(), this.date.getMonth(), 1).getDay();
         const lastDayOfMonth=new Date(this.date.getFullYear(),this.date.getMonth()+1, 0).getDate();
         const dayNames = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
         let calendarHTML = `
+        
             <table>
+            <button class="button">click</button>
                 <thead>
                     <tr>
                         <th colspan="7">${this.getMonthName()} ${this.date.getFullYear()}</th>
