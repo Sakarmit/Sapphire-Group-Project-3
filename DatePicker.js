@@ -21,6 +21,7 @@ class DatePicker {
         this.setupControls();
         const firstDayOfMonth = new Date(this.date.getFullYear(), this.date.getMonth(), 1).getDay();
         const lastDayOfMonth=new Date(this.date.getFullYear(),this.date.getMonth()+1, 0).getDate();
+        let previousMonth = new Date(this.date.getFullYear(),this.date.getMonth(), -firstDayOfMonth + 1).getDate();
         const dayNames = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
         let calendarHTML = `
         
@@ -43,7 +44,8 @@ class DatePicker {
 
             for (let j = 0; j < 7; j++) {
                 if (i === 0 && j < firstDayOfMonth) {
-                    calendarHTML += '<td class="other-month"></td>';
+                    calendarHTML += `<td class="other-month">${previousMonth}</td>`;
+                    previousMonth++;
                 } else if (dayCounter <= lastDayOfMonth) {
                     calendarHTML += `<td>${dayCounter}</td>`;
                     dayCounter++;
