@@ -26,10 +26,11 @@ class DatePicker {
         let calendarHTML = `
         
             <table>
-            <button class="button">click</button>
                 <thead>
                     <tr>
+                        <th> <button class="button">\<</button> </th>
                         <th colspan="7">${this.getMonthName()} ${this.date.getFullYear()}</th>
+                        <th> <button class="button">\></button> </th>
                     </tr>
                     <tr>
                         ${dayNames.map(day => `<th>${day}</th>`).join('')}
