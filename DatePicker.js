@@ -39,6 +39,7 @@ class DatePicker {
         `;
 
         let dayCounter = 1;
+        let nextMonthCounter = 1;
         for (let i = 0; i < 6; i++) {
             calendarHTML += '<tr>';
 
@@ -50,7 +51,8 @@ class DatePicker {
                     calendarHTML += `<td>${dayCounter}</td>`;
                     dayCounter++;
                 } else {
-                    calendarHTML += '<td class="other-month"></td>';
+                    calendarHTML += `<td class="other-month">${nextMonthCounter}</td>`;
+                    nextMonthCounter++;
                 }
             }
             calendarHTML += '</tr>';
