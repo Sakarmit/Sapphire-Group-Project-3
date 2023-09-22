@@ -17,6 +17,10 @@ class DatePicker {
         this.container.innerHTML = calendarHTML;
     }
 
+    testFunction() {
+        alert('sad')
+    }
+
     generateCalendarHTML() {
         this.setupControls();
         const firstDayOfMonth = new Date(this.date.getFullYear(), this.date.getMonth(), 1).getDay();
@@ -28,7 +32,7 @@ class DatePicker {
             <table>
                 <thead>
                     <tr>
-                        <th> <button class="button">\<</button> </th>
+                        <th> <button class="button" onclick="testFunction()">\<</button> </th>
                         <th colspan="7">${this.getMonthName()} ${this.date.getFullYear()}</th>
                         <th> <button class="button">\></button> </th>
                     </tr>
