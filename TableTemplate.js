@@ -1,10 +1,10 @@
-'use strict'
+'use strict';
 
 class TableTemplate {
     static fillIn(tableID, dict, columnName) {
-        let table = document.getElementById(tableID);
-        let tableBody = table.children[0];
-        let rows = tableBody.children;
+        const table = document.getElementById(tableID);
+        const tableBody = table.children[0];
+        const rows = tableBody.children;
 
         // Fill in the header row
         let filler = new TemplateProcessor(rows[0].innerHTML);
@@ -23,7 +23,7 @@ class TableTemplate {
             for (let r = 0; r < rows.length; r++) {
                 for (let c = 0; c < rows[r].children.length; c++) {
                     filler = new TemplateProcessor(rows[r].children[c].innerHTML);
-                    rows[r].children[c].innerHTML = filler.fillIn(dict)
+                    rows[r].children[c].innerHTML = filler.fillIn(dict);
                 }
             }
         } else {
