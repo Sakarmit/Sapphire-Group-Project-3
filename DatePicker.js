@@ -32,7 +32,7 @@ class DatePicker {
             <table>
                 <thead>
                     <tr>
-                        <th> <button class="button" onclick="testFunction()">\<</button> </th>
+                        <th> <button class="button" onclick="datePicker1.render(new Date('1/1/2009'))">\<</button> </th>
                         <th colspan="7">${this.getMonthName()} ${this.date.getFullYear()}</th>
                         <th> <button class="button">\></button> </th>
                     </tr>
