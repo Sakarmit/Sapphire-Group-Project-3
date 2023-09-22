@@ -21,14 +21,16 @@ class DatePicker {
         this.setupControls();
         const firstDayOfMonth = new Date(this.date.getFullYear(), this.date.getMonth(), 1).getDay();
         const lastDayOfMonth=new Date(this.date.getFullYear(),this.date.getMonth()+1, 0).getDate();
+        let previousMonth = new Date(this.date.getFullYear(),this.date.getMonth(), -firstDayOfMonth + 1).getDate();
         const dayNames = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
         let calendarHTML = `
         
             <table>
-            <button class="button">click</button>
                 <thead>
                     <tr>
+                        <th> <button class="button">\<</button> </th>
                         <th colspan="7">${this.getMonthName()} ${this.date.getFullYear()}</th>
+                        <th> <button class="button">\></button> </th>
                     </tr>
                     <tr>
                         ${dayNames.map(day => `<th>${day}</th>`).join('')}
@@ -38,17 +40,20 @@ class DatePicker {
         `;
 
         let dayCounter = 1;
+        let nextMonthCounter = 1;
         for (let i = 0; i < 6; i++) {
             calendarHTML += '<tr>';
 
             for (let j = 0; j < 7; j++) {
                 if (i === 0 && j < firstDayOfMonth) {
-                    calendarHTML += '<td class="other-month"></td>';
+                    calendarHTML += `<td class="other-month">${previousMonth}</td>`;
+                    previousMonth++;
                 } else if (dayCounter <= lastDayOfMonth) {
                     calendarHTML += `<td>${dayCounter}</td>`;
                     dayCounter++;
                 } else {
-                    calendarHTML += '<td class="other-month"></td>';
+                    calendarHTML += `<td class="other-month">${nextMonthCounter}</td>`;
+                    nextMonthCounter++;
                 }
             }
             calendarHTML += '</tr>';

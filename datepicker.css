@@ -1,6 +1,6 @@
 /* stylesheet for datepicker.html*/
 table {
-    border: black solid 1px;
+    border: black solid 2px;
 }
 td.not-in-month{
     background-color: transparent;
@@ -20,5 +20,5 @@ td {
 td:hover, .month-selector:hover {
     cursor: pointer;
     background-color: yellowgreen;
-    color: goldenrod;
+    color: mediumblue;
 }
