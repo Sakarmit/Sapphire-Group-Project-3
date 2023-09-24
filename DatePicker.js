@@ -5,8 +5,8 @@ class DatePicker {
         this.container = document.getElementById(id);
         this.callback = callback;
         this.date = new Date();
-        this.render();
         this.setupControls();
+        this.render();
     }
 
     render(date) {
@@ -15,26 +15,24 @@ class DatePicker {
         }
         const calendarHTML = this.generateCalendarHTML();
         this.container.innerHTML = calendarHTML;
+        this.setupControls();
     }
 
-    testFunction() {
-        alert('sad')
-    }
+
 
     generateCalendarHTML() {
-        this.setupControls();
         const firstDayOfMonth = new Date(this.date.getFullYear(), this.date.getMonth(), 1).getDay();
         const lastDayOfMonth=new Date(this.date.getFullYear(),this.date.getMonth()+1, 0).getDate();
-        let previousMonth = new Date(this.date.getFullYear(),this.date.getMonth(), -firstDayOfMonth + 1).getDate();
+        let previousMonth=new Date(this.date.getFullYear(),this.date.getMonth(), -firstDayOfMonth + 1).getDate();
         const dayNames = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
         let calendarHTML = `
         
             <table>
                 <thead>
                     <tr>
-                        <th> <button class="button" onclick="testFunction()">\<</button> </th>
+                        <th>  </th>
                         <th colspan="7">${this.getMonthName()} ${this.date.getFullYear()}</th>
-                        <th> <button class="button">\></button> </th>
+                        <th>  </th>
                     </tr>
                     <tr>
                         ${dayNames.map(day => `<th>${day}</th>`).join('')}
@@ -80,14 +78,14 @@ class DatePicker {
 
     setupControls() {
         const prevButton = document.createElement('button');
-        prevButton.textContent = '<';
+        prevButton.innerHTML = '&lt;'; // Use HTML entities for '<'
         prevButton.addEventListener('click', () => {
             this.date.setMonth(this.date.getMonth() - 1);
             this.render();
         });
 
         const nextButton = document.createElement('button');
-        nextButton.textContent = '>';
+        nextButton.innerHTML = '&gt;'; // Use HTML entities for '>'
         nextButton.addEventListener('click', () => {
             this.date.setMonth(this.date.getMonth() + 1);
             this.render();
@@ -100,4 +98,6 @@ class DatePicker {
 
         this.container.appendChild(controlsDiv);
     }
+
+
 }
