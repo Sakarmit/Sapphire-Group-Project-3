@@ -30,7 +30,7 @@ class DatePicker {
             <table>
                 <thead>
                     <tr>
-                        <th>  </th>
+                        <th><div></div>  </th>
                         <th colspan="7">${this.getMonthName()} ${this.date.getFullYear()}</th>
                         <th>  </th>
                     </tr>
