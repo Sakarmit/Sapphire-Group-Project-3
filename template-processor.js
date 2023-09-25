@@ -1,6 +1,9 @@
 'use strict';
 
+// TemplateProcessor USED IN OTHER FILES; exported KEYWORD DIDN'T WORK
+/* eslint-disable no-unused-vars */
 class TemplateProcessor {
+    /* eslint-enable no-unused-vars */
     constructor(template) {
         this.template = template;
     }
