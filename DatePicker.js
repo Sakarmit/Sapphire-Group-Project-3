@@ -97,26 +97,11 @@ class DatePicker {
         
         const tableDatas = Array.from(this.container.getElementsByTagName("td"));
         tableDatas.forEach(element => {
-            let monthOutput = this.date.getMonth() + 1;
-            let yearOutput = this.date.getFullYear();
-
-            if (element.getAttribute('class') === 'other-month') {
-                if (element.textContent > 8) {
-                    if (--monthOutput === 0) {
-                        monthOutput = 12;
-                        yearOutput--;
-                    }
-                } else {
-                    if (++monthOutput === 13) {
-                        monthOutput = 1;
-                        yearOutput++;
-                    }
-                }
+            if (element.getAttribute('class') !== 'other-month') {
+                element.addEventListener('click', () => {
+                    this.callback(this.id, {month: this.date.getMonth()+1, day: element.textContent, year: this.date.getFullYear()});
+                });
             }
-
-            element.addEventListener('click', () => {
-                this.callback(this.id, {month: monthOutput, day: element.textContent, year: yearOutput});
-            });
         });
     }
 
