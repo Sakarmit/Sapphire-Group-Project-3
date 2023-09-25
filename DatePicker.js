@@ -57,6 +57,9 @@ class DatePicker {
                 }
             }
             calendarHTML += '</tr>';
+            if (dayCounter > lastDayOfMonth) {
+                break;
+            }
         }
         calendarHTML += `
                 </tbody>
