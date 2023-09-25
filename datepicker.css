@@ -22,3 +22,8 @@ td:hover, .month-selector:hover {
     background-color: yellowgreen;
     color: mediumblue;
 }
+
+.other-month:hover{
+    background-color: grey;
+    color: black;
+}
