@@ -2,10 +2,10 @@
 
 class DatePicker {
     constructor(id, callback) {
+        this.id = id;
         this.container = document.getElementById(id);
         this.callback = callback;
         this.date = new Date();
-        this.setupControls();
         this.render();
     }
 
@@ -29,10 +29,8 @@ class DatePicker {
         
             <table>
                 <thead>
-                    <tr>
-                        <th><div></div>  </th>
-                        <th colspan="7">${this.getMonthName()} ${this.date.getFullYear()}</th>
-                        <th>  </th>
+                    <tr class="top-header">
+                        <th colspan="5">${this.getMonthName()} ${this.date.getFullYear()}</th>
                     </tr>
                     <tr>
                         ${dayNames.map(day => `<th>${day}</th>`).join('')}
@@ -91,12 +89,9 @@ class DatePicker {
             this.render();
         });
 
-        const controlsDiv = document.createElement('div');
-        controlsDiv.classList.add('calendar-controls');
-        controlsDiv.appendChild(prevButton);
-        controlsDiv.appendChild(nextButton);
-
-        this.container.appendChild(controlsDiv);
+        const topHeader = this.container.getElementsByClassName("top-header").item(0);
+        topHeader.prepend(prevButton);
+        topHeader.append(nextButton);
     }
 
 
